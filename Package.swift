@@ -24,7 +24,7 @@ let package = Package(
                 .product(name: "SnapKit", package: "SnapKit")
             ],
             sources: [
-                "Sources",
+                "Sources/BSMultiTool",
                 "Sources/Extensions"
             ]
         )
