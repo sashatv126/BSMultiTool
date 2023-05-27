@@ -24,7 +24,15 @@ let package = Package(
                 .product(name: "SnapKit", package: "SnapKit")
             ],
             sources: [
-                "Sources/BSMultiTool",
+                "Sources/BSMultiTool"
+            ]
+        ),
+        .target(
+            name: "Extensions",
+            dependencies: [
+                "BSMultiTool"
+            ],
+            sources: [
                 "Sources/Extensions"
             ]
         )
