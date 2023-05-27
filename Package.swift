@@ -23,17 +23,9 @@ let package = Package(
             dependencies: [
                 .product(name: "SnapKit", package: "SnapKit")
             ],
+            path: "Sources/BSMultiTool", // Обновленный путь к источникам вашей основной цели
             sources: [
-                "Sources/BSMultiTool"
-            ]
-        ),
-        .target(
-            name: "Extensions",
-            dependencies: [
-                "BSMultiTool"
-            ],
-            sources: [
-                "Sources/Extensions"
+                "Extensions" // Обновленный путь к источникам вашего расширения
             ]
         )
     ]
