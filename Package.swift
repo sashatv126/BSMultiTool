@@ -25,7 +25,7 @@ let package = Package(
             ],
             sources: [
                 "Sources",
-                "Extensions"
+                "Sources/Extensions"
             ]
         )
     ]
