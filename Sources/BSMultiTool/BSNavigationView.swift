@@ -8,9 +8,9 @@
 import Foundation
 import UIKit
 
-public final class BSNavigationView: UIView {
+final class BSNavigationView: UIView {
 
-    public let navigationBar = UINavigationBar()
+    let navigationBar = UINavigationBar()
 
     override init(frame: CGRect) {
         super.init(frame: .zero)
@@ -59,17 +59,17 @@ public final class BSNavigationView: UIView {
 //        ]
     }
 
-    override public func addSubview(_ view: UIView) {
+    override func addSubview(_ view: UIView) {
         super.addSubview(view)
         bringSubviewToFront(navigationBar)
     }
 
-    override public func insertSubview(_ view: UIView, at index: Int) {
+    override func insertSubview(_ view: UIView, at index: Int) {
         super.insertSubview(view, at: index)
         bringSubviewToFront(navigationBar)
     }
 
-    public func setNavigationBarHidden(_ hidden: Bool) {
+    func setNavigationBarHidden(_ hidden: Bool) {
         navigationBar.isHidden = hidden
     }
 }

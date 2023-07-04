@@ -14,11 +14,11 @@ public final class BSNavigationController: UIViewController {
     private let customTransitioningDelegate = BSTransitioningDelegate()
     private(set) var viewControllers: [UIViewController] = []
 
-    public var topViewController: UIViewController? {
+    var topViewController: UIViewController? {
         viewControllers.last
     }
 
-    public var navigationBar: UINavigationBar {
+    var navigationBar: UINavigationBar {
         contentView.navigationBar
     }
 
@@ -44,12 +44,12 @@ public final class BSNavigationController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
 
-    override public func loadView() {
+    override func loadView() {
         view = contentView
         updateAdditionalSafeAreaInsets()
     }
 
-    public override func viewDidLayoutSubviews() {
+    override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
 
         updateAdditionalSafeAreaInsets()
@@ -85,7 +85,7 @@ public final class BSNavigationController: UIViewController {
         ])
     }
 
-    public func setViewControllers(_ viewControllers: [UIViewController], animated: Bool) {
+    func setViewControllers(_ viewControllers: [UIViewController], animated: Bool) {
         guard let to = viewControllers.last else {
             return
         }
@@ -100,7 +100,7 @@ public final class BSNavigationController: UIViewController {
         navigationBar.setItems(viewControllers.map { $0.navigationItem }, animated: animated)
     }
 
-    public func pushViewController(_ viewController: UIViewController, animated: Bool) {
+    func pushViewController(_ viewController: UIViewController, animated: Bool) {
         guard let from = topViewController else {
             setRootViewController(viewController)
             return
@@ -112,7 +112,7 @@ public final class BSNavigationController: UIViewController {
     }
 
     @discardableResult
-    public func popViewController(animated: Bool) -> UIViewController? {
+    func popViewController(animated: Bool) -> UIViewController? {
         guard let from = topViewController, from != viewControllers.first else { return nil }
 
         viewControllers.removeLast()
