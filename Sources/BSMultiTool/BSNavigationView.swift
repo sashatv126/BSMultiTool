@@ -5,12 +5,11 @@
 //  Created by Александр Александрович on 04.07.2023.
 //
 
-import Foundation
 import UIKit
 
-final class BSNavigationView: UIView {
+public final class BSNavigationView: UIView {
 
-    let navigationBar = UINavigationBar()
+    public let navigationBar = UINavigationBar()
 
     override init(frame: CGRect) {
         super.init(frame: .zero)
@@ -59,17 +58,17 @@ final class BSNavigationView: UIView {
 //        ]
     }
 
-    override func addSubview(_ view: UIView) {
+    override public func addSubview(_ view: UIView) {
         super.addSubview(view)
         bringSubviewToFront(navigationBar)
     }
 
-    override func insertSubview(_ view: UIView, at index: Int) {
+    override public func insertSubview(_ view: UIView, at index: Int) {
         super.insertSubview(view, at: index)
         bringSubviewToFront(navigationBar)
     }
 
-    func setNavigationBarHidden(_ hidden: Bool) {
+    public func setNavigationBarHidden(_ hidden: Bool) {
         navigationBar.isHidden = hidden
     }
 }

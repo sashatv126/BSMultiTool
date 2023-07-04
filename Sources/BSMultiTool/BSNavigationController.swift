@@ -5,20 +5,19 @@
 //  Created by Александр Александрович on 04.07.2023.
 //
 
-import Foundation
 import UIKit
 
-final class BSNavigationController: UIViewController {
+public final class BSNavigationController: UIViewController {
 
     private let contentView = BSNavigationView()
     private let customTransitioningDelegate = BSTransitioningDelegate()
     private(set) var viewControllers: [UIViewController] = []
 
-    var topViewController: UIViewController? {
+    public var topViewController: UIViewController? {
         viewControllers.last
     }
 
-    var navigationBar: UINavigationBar {
+    public var navigationBar: UINavigationBar {
         contentView.navigationBar
     }
 
@@ -44,12 +43,12 @@ final class BSNavigationController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
 
-    override func loadView() {
+    override public func loadView() {
         view = contentView
         updateAdditionalSafeAreaInsets()
     }
 
-    override func viewDidLayoutSubviews() {
+    public override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
 
         updateAdditionalSafeAreaInsets()
@@ -85,7 +84,7 @@ final class BSNavigationController: UIViewController {
         ])
     }
 
-    func setViewControllers(_ viewControllers: [UIViewController], animated: Bool) {
+    public func setViewControllers(_ viewControllers: [UIViewController], animated: Bool) {
         guard let to = viewControllers.last else {
             return
         }
@@ -100,7 +99,7 @@ final class BSNavigationController: UIViewController {
         navigationBar.setItems(viewControllers.map { $0.navigationItem }, animated: animated)
     }
 
-    func pushViewController(_ viewController: UIViewController, animated: Bool) {
+    public func pushViewController(_ viewController: UIViewController, animated: Bool) {
         guard let from = topViewController else {
             setRootViewController(viewController)
             return
@@ -112,7 +111,7 @@ final class BSNavigationController: UIViewController {
     }
 
     @discardableResult
-    func popViewController(animated: Bool) -> UIViewController? {
+    public func popViewController(animated: Bool) -> UIViewController? {
         guard let from = topViewController, from != viewControllers.first else { return nil }
 
         viewControllers.removeLast()
