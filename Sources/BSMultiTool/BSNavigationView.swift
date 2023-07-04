@@ -45,7 +45,7 @@ public final class BSNavigationView: UIView {
     }
 
     private func configure() {
-        backgroundColor = .gray
+        backgroundColor = .white
         layer.masksToBounds = true
         layer.cornerRadius = 10
         layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
@@ -53,7 +53,7 @@ public final class BSNavigationView: UIView {
         navigationBar.barStyle = .default
         navigationBar.isTranslucent = false
         navigationBar.titleTextAttributes = [
-            .foregroundColor: UIColor.black
+            .foregroundColor: UIColor.white
         ]
     }
 
