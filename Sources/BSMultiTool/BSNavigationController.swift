@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-public final class BSNavigationController: UIViewController {
+final class BSNavigationController: UIViewController {
 
     private let contentView = BSNavigationView()
     private let customTransitioningDelegate = BSTransitioningDelegate()
