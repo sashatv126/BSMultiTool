@@ -46,17 +46,17 @@ public final class BSNavigationView: UIView {
     }
 
     private func configure() {
-        backgroundColor = .secondaryBackground
-        layer.masksToBounds = true
-        layer.cornerRadius = 10
-        layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
-
-        navigationBar.barStyle = .default
-        navigationBar.isTranslucent = false
-        navigationBar.setBackgroundImage(UIImage(color: .secondaryBackground), for: .default)
-        navigationBar.titleTextAttributes = [
-            .foregroundColor: UIColor.primaryText
-        ]
+//        backgroundColor = .secondaryBackground
+//        layer.masksToBounds = true
+//        layer.cornerRadius = 10
+//        layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
+//
+//        navigationBar.barStyle = .default
+//        navigationBar.isTranslucent = false
+//        navigationBar.setBackgroundImage(UIImage(color: .secondaryBackground), for: .default)
+//        navigationBar.titleTextAttributes = [
+//            .foregroundColor: UIColor.primaryText
+//        ]
     }
 
     override public func addSubview(_ view: UIView) {
