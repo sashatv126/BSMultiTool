@@ -6,16 +6,17 @@
 //
 
 import UIKit
+import SnapKit
 
-final class BSPresentationController: UIPresentationController {
+final public class BSPresentationController: UIPresentationController {
 
-    override var shouldPresentInFullscreen: Bool {
+    override public var shouldPresentInFullscreen: Bool {
         false
     }
 
     private lazy var dimmView: UIView = {
         let view = UIView()
-        view.backgroundColor = UIColor.black.withAlphaComponent(0.75)
+        view.backgroundColor = UIColor.black.withAlphaComponent(0.2)
         view.addGestureRecognizer(tapRecognizer)
         return view
     }()
@@ -28,15 +29,12 @@ final class BSPresentationController: UIPresentationController {
         return recognizer
     }()
 
-    override func presentationTransitionWillBegin() {
+    override public func presentationTransitionWillBegin() {
         super.presentationTransitionWillBegin()
 
         guard let containerView = containerView,
               let presentedView = presentedView
         else { return }
-
-        presentedView.translatesAutoresizingMaskIntoConstraints = false
-        dimmView.translatesAutoresizingMaskIntoConstraints = false
 
         containerView.addSubview(dimmView)
         containerView.addSubview(presentedView)
@@ -46,31 +44,17 @@ final class BSPresentationController: UIPresentationController {
             self.dimmView.alpha = 1
         }
 
-        NSLayoutConstraint.activate(
-            [
-                dimmView.topAnchor.constraint(equalTo: containerView.topAnchor),
-                dimmView.leadingAnchor.constraint(equalTo: containerView.leadingAnchor),
-                dimmView.trailingAnchor.constraint(equalTo: containerView.trailingAnchor),
-                dimmView.bottomAnchor.constraint(equalTo: containerView.bottomAnchor),
-                presentedView.bottomAnchor.constraint(equalTo: containerView.bottomAnchor),
-                presentedView.leadingAnchor.constraint(equalTo: containerView.leadingAnchor),
-                presentedView.trailingAnchor.constraint(equalTo: containerView.trailingAnchor),
-                presentedView.heightAnchor.constraint(
-                    lessThanOrEqualTo: containerView.heightAnchor,
-                    constant: -containerView.safeAreaInsets.top
-                )
-            ]
-        )
+       setupConstraints()
     }
 
-    override func presentationTransitionDidEnd(_ completed: Bool) {
+    override public func presentationTransitionDidEnd(_ completed: Bool) {
         if !completed {
             dimmView.removeFromSuperview()
             presentedView?.removeFromSuperview()
         }
     }
 
-    override func dismissalTransitionWillBegin() {
+    override public func dismissalTransitionWillBegin() {
         super.dismissalTransitionWillBegin()
 
         performAlongsideTransitionIfPossible {
@@ -86,6 +70,17 @@ final class BSPresentationController: UIPresentationController {
 
         coordinator.animate { _ in
             animation()
+        }
+    }
+
+    private func setupConstraints() {
+        dimmView.snp.makeConstraints { make in
+            make.edges.equalToSuperview()
+        }
+
+        presentedView?.snp.makeConstraints { make in
+            make.horizontalEdges.bottom.equalToSuperview()
+            make.height.lessThanOrEqualToSuperview().offset(-(containerView?.safeAreaInsets.top ?? 00))
         }
     }
 
