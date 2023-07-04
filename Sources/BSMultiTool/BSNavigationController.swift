@@ -27,7 +27,7 @@ public final class BSNavigationController: UIViewController {
         }
     }
 
-    convenience init(rootViewController: UIViewController) {
+    convenience public init(rootViewController: UIViewController) {
         self.init()
         setRootViewController(rootViewController)
     }
