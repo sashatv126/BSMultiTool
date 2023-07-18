@@ -8,7 +8,7 @@
 import UIKit
 
 final class CoverVerticalPresentAnimatedTransitioning: NSObject, UIViewControllerAnimatedTransitioning {
-    private let duration: TimeInterval = 0.6
+    private let duration: TimeInterval = 0.45
 
     func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
         duration
