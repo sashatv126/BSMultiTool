@@ -5,7 +5,9 @@
 //  Created by Александр Александрович on 04.07.2023.
 //
 
+#if canImport(UIKit)
 import UIKit
+#endif
 
 public final class BSNavigationController: UIViewController {
 
