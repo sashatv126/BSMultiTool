@@ -11,7 +11,7 @@ final public class BSTransitioningDelegate: NSObject, UIViewControllerTransition
     
     private let minTranslation: CGFloat
     
-    init(minTranslation: CGFloat = 0) {
+    public init(minTranslation: CGFloat = 0) {
         self.minTranslation = minTranslation
     }
 
