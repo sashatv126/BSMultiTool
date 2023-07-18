@@ -8,6 +8,12 @@
 import UIKit
 
 final public class BSTransitioningDelegate: NSObject, UIViewControllerTransitioningDelegate {
+    
+    private let minTranslation: CGFloat
+    
+    init(minTranslation: CGFloat) {
+        self.minTranslation = minTranslation
+    }
 
     private var driver: BSTransitionDriver?
 
@@ -16,7 +22,7 @@ final public class BSTransitioningDelegate: NSObject, UIViewControllerTransition
         presenting: UIViewController?,
         source: UIViewController
     ) -> UIPresentationController? {
-        driver = BSTransitionDriver(controller: presented)
+        driver = BSTransitionDriver(controller: presented,minTranslation: minTranslation)
 
         return BSPresentationController(
             presentedViewController: presented,
