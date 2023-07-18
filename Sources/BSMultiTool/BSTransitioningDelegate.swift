@@ -22,7 +22,7 @@ final public class BSTransitioningDelegate: NSObject, UIViewControllerTransition
         presenting: UIViewController?,
         source: UIViewController
     ) -> UIPresentationController? {
-        driver = BSTransitionDriver(controller: presented,minTranslation: minTranslation)
+        driver = BSTransitionDriver(controller: presented)
 
         return BSPresentationController(
             presentedViewController: presented,
