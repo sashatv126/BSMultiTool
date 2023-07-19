@@ -9,12 +9,6 @@ import UIKit
 
 final public class BSTransitioningDelegate: NSObject, UIViewControllerTransitioningDelegate {
     
-    private let minTranslation: CGFloat
-    
-    public init(minTranslation: CGFloat = 0) {
-        self.minTranslation = minTranslation
-    }
-
     private var driver: BSTransitionDriver?
 
     public func presentationController(
