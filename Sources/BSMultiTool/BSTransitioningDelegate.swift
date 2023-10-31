@@ -8,7 +8,7 @@
 import UIKit
 
 final public class BSTransitioningDelegate: NSObject, UIViewControllerTransitioningDelegate {
-
+    
     private var driver: BSTransitionDriver?
 
     public func presentationController(

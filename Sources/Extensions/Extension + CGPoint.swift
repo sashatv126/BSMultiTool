@@ -5,6 +5,9 @@
 //  Created by Александр Александрович on 27.05.2023.
 //
 
+import CoreGraphics
+import UIKit
+
 extension CGPoint {
     func projectedOffset(decelerationRate: UIScrollView.DecelerationRate) -> CGPoint {
         CGPoint(x: x.projectedOffset(decelerationRate: decelerationRate),

@@ -1,6 +1,5 @@
-// swift-tools-version: 5.7
+// swift-tools-version:5.5
 // The swift-tools-version declares the minimum version of Swift required to build this package.
-
 
 import PackageDescription
 
@@ -23,10 +22,12 @@ let package = Package(
             dependencies: [
                 .product(name: "SnapKit", package: "SnapKit")
             ],
+            path: "Sources",
             sources: [
-                "Sources",
+                "BSMultiTool",
                 "Extensions"
             ]
         )
     ]
 )
+

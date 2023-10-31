@@ -43,7 +43,7 @@ final public class BSPresentationController: UIPresentationController {
         performAlongsideTransitionIfPossible {
             self.dimmView.alpha = 1
         }
-        
+
        setupConstraints()
     }
 
@@ -72,12 +72,12 @@ final public class BSPresentationController: UIPresentationController {
             animation()
         }
     }
-    
+
     private func setupConstraints() {
         dimmView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
         }
-        
+
         presentedView?.snp.makeConstraints { make in
             make.horizontalEdges.bottom.equalToSuperview()
             make.height.lessThanOrEqualToSuperview().offset(-(containerView?.safeAreaInsets.top ?? 00))
@@ -89,4 +89,3 @@ final public class BSPresentationController: UIPresentationController {
         presentingViewController.dismiss(animated: true)
     }
 }
-
